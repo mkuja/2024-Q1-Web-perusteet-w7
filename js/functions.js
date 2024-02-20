@@ -8,7 +8,8 @@ const x_input = document.querySelector('#x')
 const y_input = document.querySelector('#y')
 const draw_button = document.querySelector('button')
 const radio_form = document.querySelector('form')
-const color_input = document.querySelector('input[type="color"]')
+const colorInput = document.querySelector('input[type="color"]')
+const lineWidthInput = document.querySelector('input[type="number"]')
 
 
 const updateUI = (label3, label4) => {
@@ -47,30 +48,39 @@ draw_button.addEventListener('click', (e) => {
     const shape = radio_form["shape"].value
 
     switch (shape) {
-        case 'line':
-            const x1 = document.querySelector("div#third input").value
-            const y1 = document.querySelector("div#fourth input").value
-            const line = new Line(x_input.value, y_input.value, x1, y1)
-            line.setColor(color_input.value)
-            line.draw(ctx)
-            break
         case 'circle':
             const radius = document.querySelector("div#third input").value
             const circle = new Circle(
                 x_input.value,
-                y_input.value, 
+                y_input.value,
                 radius)
+            circle.setColor(colorInput.value)
+            circle.setLineWidth(lineWidthInput.value)
             circle.draw(ctx)
+            break
+        case 'line':
+            const x1 = document.querySelector("div#third input").value
+            const y1 = document.querySelector("div#fourth input").value
+            const line = new Line(x_input.value, y_input.value, x1, y1)
+            line.setColor(colorInput.value)
+            line.setLineWidth(lineWidthInput.value)
+            line.draw(ctx)
             break
         case 'rectangle':
             const width = document.querySelector("div#third input").value
             const height = document.querySelector("div#fourth input").value
             const rectangle = new Rectangle(x_input.value, y_input.value, width, height)
+            rectangle.setColor(colorInput.value)
+            rectangle.setLineWidth(lineWidthInput.value)
+
             rectangle.draw(ctx)
             break
         case 'square':
             const side = document.querySelector("div#third input").value
             const square = new Rectangle(x_input.value, y_input.value, side, side)
+            square.setColor(colorInput.value)
+            square.setLineWidth(lineWidthInput.value)
+
             square.draw(ctx)
             break
     }

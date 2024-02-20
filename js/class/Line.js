@@ -15,6 +15,7 @@ export class Line extends Shape {
         ctx.strokeStyle = this._color
         ctx.moveTo(this._x, this._y)
         ctx.lineTo(this.#x1, this.#y1)
+        ctx.lineWidth = this._lineWidth
         ctx.stroke()
     }
 }

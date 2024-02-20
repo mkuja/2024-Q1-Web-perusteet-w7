@@ -12,7 +12,7 @@ export class Circle extends Shape {
     ctx.beginPath()
     ctx.strokeStyle = this._color
     ctx.arc(this._x, this._y, this.#radius, 0, 2*Math.PI)
-    ctx.lineWidth = 2
+    ctx.lineWidth = this._lineWidth
     ctx.stroke()
   }
 }
