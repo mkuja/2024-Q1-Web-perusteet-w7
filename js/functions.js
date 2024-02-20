@@ -8,6 +8,7 @@ const x_input = document.querySelector('#x')
 const y_input = document.querySelector('#y')
 const draw_button = document.querySelector('button')
 const radio_form = document.querySelector('form')
+const color_input = document.querySelector('input[type="color"]')
 
 
 const updateUI = (label3, label4) => {
@@ -50,6 +51,7 @@ draw_button.addEventListener('click', (e) => {
             const x1 = document.querySelector("div#third input").value
             const y1 = document.querySelector("div#fourth input").value
             const line = new Line(x_input.value, y_input.value, x1, y1)
+            line.setColor(color_input.value)
             line.draw(ctx)
             break
         case 'circle':

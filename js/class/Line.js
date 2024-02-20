@@ -12,6 +12,7 @@ export class Line extends Shape {
 
     draw(ctx) {
         ctx.beginPath()
+        ctx.strokeStyle = this._color
         ctx.moveTo(this._x, this._y)
         ctx.lineTo(this.#x1, this.#y1)
         ctx.stroke()
