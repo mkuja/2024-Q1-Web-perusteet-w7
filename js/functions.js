@@ -1,4 +1,6 @@
-import { Circle } from "./class/Circle";
+import { Circle } from "./class/Circle.js";
+import {Line} from "./class/Line.js";
+import {Rectangle} from "./class/Rectangle.js";
 
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
@@ -8,7 +10,7 @@ const draw_button = document.querySelector('button')
 const radio_form = document.querySelector('form')
 
 
-const updateUI = (label3, lahel4) => {
+const updateUI = (label3, label4) => {
     document.querySelector('div#third label').innerHTML = label3
 
     if (label4 !== undefined) {
@@ -22,7 +24,7 @@ const updateUI = (label3, lahel4) => {
 }
 
 radio_form.addEventListener('click', () => {
-    const shape = radio_form[shape].value
+    const shape = radio_form["shape"].value
 
     switch (shape) {
         case 'line':
@@ -41,21 +43,33 @@ radio_form.addEventListener('click', () => {
 })
 
 draw_button.addEventListener('click', (e) => {
-    const shape = radio_form[shape].value
+    const shape = radio_form["shape"].value
 
     switch (shape) {
         case 'line':
+            const x1 = document.querySelector("div#third input").value
+            const y1 = document.querySelector("div#fourth input").value
+            const line = new Line(x_input.value, y_input.value, x1, y1)
+            line.draw(ctx)
             break
         case 'circle':
+            const radius = document.querySelector("div#third input").value
             const circle = new Circle(
                 x_input.value,
                 y_input.value, 
-                radio_form.radius.value)
+                radius)
             circle.draw(ctx)
             break
         case 'rectangle':
+            const width = document.querySelector("div#third input").value
+            const height = document.querySelector("div#fourth input").value
+            const rectangle = new Rectangle(x_input.value, y_input.value, width, height)
+            rectangle.draw(ctx)
             break
         case 'square':
+            const side = document.querySelector("div#third input").value
+            const square = new Rectangle(x_input.value, y_input.value, side, side)
+            square.draw(ctx)
             break
     }
 })
