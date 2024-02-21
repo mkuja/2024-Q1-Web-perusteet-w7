@@ -49,41 +49,55 @@ draw_button.addEventListener('click', (e) => {
 
     switch (shape) {
         case 'circle':
-            const radius = document.querySelector("div#third input").value
-            const circle = new Circle(
-                x_input.value,
-                y_input.value,
-                radius)
-            circle.setColor(colorInput.value)
-            circle.setLineWidth(lineWidthInput.value)
-            circle.draw(ctx)
+            drawCircle()
             break
         case 'line':
-            const x1 = document.querySelector("div#third input").value
-            const y1 = document.querySelector("div#fourth input").value
-            const line = new Line(x_input.value, y_input.value, x1, y1)
-            line.setColor(colorInput.value)
-            line.setLineWidth(lineWidthInput.value)
-            line.draw(ctx)
+            drawLine()
             break
         case 'rectangle':
-            const width = document.querySelector("div#third input").value
-            const height = document.querySelector("div#fourth input").value
-            const rectangle = new Rectangle(x_input.value, y_input.value, width, height)
-            rectangle.setColor(colorInput.value)
-            rectangle.setLineWidth(lineWidthInput.value)
-
-            rectangle.draw(ctx)
+            drawRectangle()
             break
         case 'square':
-            const side = document.querySelector("div#third input").value
-            const square = new Rectangle(x_input.value, y_input.value, side, side)
-            square.setColor(colorInput.value)
-            square.setLineWidth(lineWidthInput.value)
-
-            square.draw(ctx)
+            drawSquare()
             break
     }
 })
+
+const drawCircle = () => {
+    const radius = document.querySelector("div#third input").value
+    const circle = new Circle(
+        x_input.value,
+        y_input.value,
+        radius)
+    circle.setColor(colorInput.value)
+    circle.setLineWidth(lineWidthInput.value)
+    circle.draw(ctx)
+}
+
+const drawLine = () => {
+    const x1 = document.querySelector("div#third input").value
+    const y1 = document.querySelector("div#fourth input").value
+    const line = new Line(x_input.value, y_input.value, x1, y1)
+    line.setColor(colorInput.value)
+    line.setLineWidth(lineWidthInput.value)
+    line.draw(ctx)
+}
+
+const drawRectangle = () => {
+    const width = document.querySelector("div#third input").value
+    const height = document.querySelector("div#fourth input").value
+    const rectangle = new Rectangle(x_input.value, y_input.value, width, height)
+    rectangle.setColor(colorInput.value)
+    rectangle.setLineWidth(lineWidthInput.value)
+    rectangle.draw(ctx)
+}
+
+const drawSquare = () => {
+    const side = document.querySelector("div#third input").value
+    const square = new Rectangle(x_input.value, y_input.value, side, side)
+    square.setColor(colorInput.value)
+    square.setLineWidth(lineWidthInput.value)
+    square.draw(ctx)
+}
 
 console.log('Loaded functions.js')
